@@ -5,8 +5,8 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Runtime stage using a lightweight JDK 17 image
-FROM openjdk:17-jdk-slim
+# Runtime stage using official, lightweight Eclipse Temurin JRE 17
+FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/api-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
