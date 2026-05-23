@@ -1,0 +1,26 @@
+# Build target folder
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Secret credentials override
+src/main/resources/application-local.yml
+src/main/resources/application-local.properties
+
+# Uploads directory
+uploads/
+
+# IDE/Editor settings
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.settings/
+.project
+.classpath
+bin/

@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: agrorent-api
+  profiles:
+    active: local
+  
+  datasource:
+    url: ${DATABASE_URL:jdbc:mysql://sql7.freesqldatabase.com:3306/sql7827425?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    username: ${DATABASE_USER:sql7827425}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+# Custom application JWT details
+agrorent:
+  jwt:
+    # 512-bit HS512 base64-encoded secret key for token signing (Must change in production)
+    secret: ${JWT_SECRET:9a4f2c8d3b7a5e1f0c2e4a6b8d0e1f3a5c7e9b0d2f4a6c8e0g2i4k6m8o0p2q4r6s8t0u2v4w6x8y0z}
+    expiration-ms: 86400000 # 24 hours in milliseconds
+
+# Cloudinary Storage Configuration
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME:dxmhgqfig}
+  api-key: ${CLOUDINARY_API_KEY:185159914317658}
+  api-secret: ${CLOUDINARY_API_SECRET}
+
